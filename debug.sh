@@ -18,6 +18,7 @@ debug() {
 **** '$DESCRIPTION' ***
 
 SHELL: ${SHELL:-unknown}
+SHLVL: ${SHLVL:-unknown}
 $IS_INTERACTIVE
 $IS_LOGIN
 *********************

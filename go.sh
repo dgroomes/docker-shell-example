@@ -4,7 +4,7 @@ set -e
 
 COMMAND=${1:-run}
 
-docker build -t docker-shell-example:local .
+docker build --no-cache -t docker-shell-example:local .
 
 if [[ "$COMMAND" = "run" ]]; then
   docker run --rm docker-shell-example:local
