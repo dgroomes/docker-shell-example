@@ -1,12 +1,6 @@
 # docker-shell-example
 
-Illustrating the behavior of file sourcing behavior in the shell in Docker.
-
-For example:
-
-* When executing `RUN` instructions in a Dockerfile, does the shell source `/etc/profile`? ? `~/.profile`?
-* When executing the `SHELL` instruction in a Dockerfile, does the shell source `~/.bashrc`?
-* etc...
+Illustrating the shell in Docker
 
 ### Run
 
