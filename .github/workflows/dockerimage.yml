@@ -10,5 +10,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Illustrate nested shell \#1
+      run: echo $SHLVL
+    - name: Illustrate nested shell \#2
+      run: bash -c "echo \$SHLVL"
+    - name: Illustrate nested shell \#3
+      run: bash -c "bash -c 'echo \$SHLVL'"
     - name: Build the Docker image
+      # Continue on error. Ths Docker build *will fail* because after all, it's illustrating
+      # a problem that I've asked about on StackOverflow https://stackoverflow.com/q/58568027/1333713 
+      continue-on-error: true
       run: docker build .
