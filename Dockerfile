@@ -2,10 +2,18 @@ FROM debian:10
 
 COPY debug.sh .
 
-RUN ./debug.sh "baseline"
+RUN . ./debug.sh && debug "baseline"
 
-RUN bash debug.sh "bash"
+RUN bash -c ". ./debug.sh && debug 'bash'"
 
-RUN ["bash", "debug.sh", "exec form"]
+RUN ["bash", "-c", ". ./debug.sh && debug 'exec form'"]
+
+RUN ["bash", "--login", "-c", ". ./debug.sh && debug 'with --login option'"]
+
+SHELL ["bash", "-c"]
+RUN . ./debug.sh && debug "after SHELL instruction"
+
+SHELL ["bash", "--login", "-c"]
+RUN . ./debug.sh && debug "after SHELL instruction with -login"
 
 CMD cat /debug_output
